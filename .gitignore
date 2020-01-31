@@ -1,0 +1,6 @@
+node_modules
+.vs
+.vscode
+/package-lock.json
+/dist
+/bin

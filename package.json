@@ -1,0 +1,25 @@
+{
+  "name": "essence-js",
+  "version": "0.3.0",
+  "description": "Ultra light JavaScript package for common DOM manipulation and other utility functions",
+  "main": "./dist/essence.js",
+  "scripts": {
+    "build": "webpack --color --mode development --progress",
+    "publish": "webpack --color --mode production --progress",
+    "watch": "webpack --watch --color --mode development --progress"
+  },
+  "author": "Sarunas Savicius <sarunas@savicius.lt>",
+  "license": "ISC",
+  "devDependencies": {
+    "copy-webpack-plugin": "^5.1.1",
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^4.5.0",
+    "typescript": "^3.6.3"
+  },
+  "typings": "./typings.d.ts",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarunassavicius/essence-js.git"
+  }
+}
