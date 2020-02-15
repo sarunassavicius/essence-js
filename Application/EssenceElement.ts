@@ -125,4 +125,12 @@ export class EssenceElement {
             }, 1);
         });
     }
+
+    public findFirstChild(selector: string): EssenceElement {
+        return EssenceCore.findFirst(selector, this.element);
+    }
+
+    public findChildren(selector: string): Array<EssenceElement> {
+        return EssenceCore.find(selector, this.element);
+    }
 }

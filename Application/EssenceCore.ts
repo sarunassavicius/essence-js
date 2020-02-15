@@ -2,9 +2,10 @@ import { EssenceElement } from "./EssenceElement";
 import { EssenceResponse } from "./EssenceResponse";
 
 export class EssenceCore {
-    public static find(selector: string): Array<EssenceElement> {
+    public static find(selector: string, root?: Element): Array<EssenceElement> {
+        let parent = root || document;
         let elements = [];
-        let nodes = document.querySelectorAll(selector);
+        let nodes = parent.querySelectorAll(selector);
 
         nodes.forEach((val: Element, key: number) => {
             elements.push(new EssenceElement(selector, val));
@@ -13,8 +14,9 @@ export class EssenceCore {
         return elements;
     }
 
-    public static findFirst(selector: string): EssenceElement {
-        let nodes = document.querySelectorAll(selector);
+    public static findFirst(selector: string, root?: Element): EssenceElement {
+        let parent = root || document;
+        let nodes = parent.querySelectorAll(selector);
 
         if (nodes.length === 0) {
             return null;
