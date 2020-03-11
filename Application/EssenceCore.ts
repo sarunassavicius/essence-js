@@ -8,7 +8,7 @@ export class EssenceCore {
         let nodes = parent.querySelectorAll(selector);
 
         nodes.forEach((val: Element, key: number) => {
-            elements.push(new EssenceElement(selector, val));
+            elements.push(new EssenceElement(val));
         });
 
         return elements;
@@ -22,7 +22,7 @@ export class EssenceCore {
             return null;
         }
 
-        return new EssenceElement(selector, nodes[0]);
+        return new EssenceElement(nodes[0]);
     }
 
     public static request<T>(url: string, method: string, data: object): Promise<EssenceResponse<T>> {

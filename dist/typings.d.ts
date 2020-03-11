@@ -9,6 +9,8 @@ export interface EssenceElement {
     fadeIn(): Promise<any>;
     fadeOut(): Promise<any>;
     slideTo(height: number, time: number): Promise<any>;
+    findFirstChild(selector: string): EssenceElement;
+    findChildren(selector: string): EssenceElement;
 }
 
 export interface EssenceResponse<T> {
@@ -19,8 +21,8 @@ export interface EssenceResponse<T> {
 }
 
 export interface EssenceCore {
-    find(selector: string): Array<EssenceElement>;
-    findFirst(selector: string): EssenceElement;
+    find(selector: string, root?: Element): Array<EssenceElement>;
+    findFirst(selector: string, root?: Element): EssenceElement;
     post<T>(url: string, data?: object): Promise<EssenceResponse<T>>;
     get<T>(url: string, data?: object): Promise<EssenceResponse<T>>;
     request<T>(url: string, method: string, data: object): Promise<EssenceResponse<T>>;
@@ -28,7 +30,7 @@ export interface EssenceCore {
 }
 
 interface Essence {
-    (selector?: string): EssenceElement;
+    (selector?: any): EssenceElement;
     find(selector: string): Array<EssenceElement>;
     findFirst(selector: string): EssenceElement;
     post<T>(url: string, data?: object): Promise<EssenceResponse<T>>;

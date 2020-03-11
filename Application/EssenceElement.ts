@@ -4,18 +4,27 @@ export class EssenceElement {
     private element: Element;
     private selector: string;
 
-    constructor(selector: string, element: Element = null) {
-        this.selector = selector;
-        this.element = element;
+    constructor(selector: any) {
+        if (selector != null) {
+            if (typeof selector === "string") {
+                this.selector = selector;
 
-        if (element === null) {
-            let e = EssenceCore.findFirst(selector);
-            if (e === null) {
-                throw new Error("No elements found with selector: " + selector);
+                let e = EssenceCore.findFirst(selector);
+                if (e === null) {
+                    throw new Error("No elements found with selector: " + selector);
+                }
+
+                this.element = e.getElement();
+                return;
             }
 
-            this.element = e.getElement();
+            if (typeof selector === "object" && (selector instanceof Element)) {
+                this.element = selector;
+                return;
+            }
         }
+
+        throw new Error("Unsupported selector");
     }
 
     public getElement(): Element {

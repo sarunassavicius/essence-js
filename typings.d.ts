@@ -30,7 +30,7 @@ export interface EssenceCore {
 }
 
 interface Essence {
-    (selector?: string): EssenceElement;
+    (selector?: any): EssenceElement;
     find(selector: string): Array<EssenceElement>;
     findFirst(selector: string): EssenceElement;
     post<T>(url: string, data?: object): Promise<EssenceResponse<T>>;

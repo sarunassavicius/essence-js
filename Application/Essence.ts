@@ -1,11 +1,12 @@
 import { EssenceCore } from "./EssenceCore"
+import { EssenceElement } from "./EssenceElement";
 
 export { Essence }
 
 export function Create(): EssenceCore {
-    let e = (<any> Object).assign(function (selector?: string) {
+    let e = (<any> Object).assign(function (selector?: any) {
         if (selector != null) {
-            return EssenceCore.findFirst(selector);
+            return new EssenceElement(selector);
         }
     }, {});
 
