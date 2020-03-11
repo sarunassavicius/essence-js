@@ -11,6 +11,9 @@ export interface EssenceElement {
     slideTo(height: number, time: number): Promise<any>;
     findFirstChild(selector: string): EssenceElement;
     findChildren(selector: string): EssenceElement;
+    focus(): void;
+    selectAllText(): void;
+    getParent(): EssenceElement;
 }
 
 export interface EssenceResponse<T> {

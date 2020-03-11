@@ -142,4 +142,18 @@ export class EssenceElement {
     public findChildren(selector: string): Array<EssenceElement> {
         return EssenceCore.find(selector, this.element);
     }
+
+    public focus(): void {
+        (this.element as HTMLElement).focus();
+    }
+
+    public selectAllText(): void {
+        if (this.element instanceof HTMLInputElement) {
+            this.element.setSelectionRange(0, this.element.value.length);
+        }
+    }
+
+    public getParent(): EssenceElement {
+        return new EssenceElement(this.element.parentElement);
+    }
 }
