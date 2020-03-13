@@ -69,7 +69,6 @@ export class EssenceElement {
             }
 
             if (element.style.opacity !== "1") {
-                //element.style.display = "block";
                 let timer = setInterval(function () {
                     element.style.opacity = String(+element.style.opacity + .10);
                     if (+getComputedStyle(element).getPropertyValue("opacity") >= 1) {
@@ -77,6 +76,8 @@ export class EssenceElement {
                         resolve();
                     }
                 }, 25)
+            } else {
+                resolve();
             }
         });
     }
@@ -98,6 +99,8 @@ export class EssenceElement {
                         resolve();
                     }
                 }, 25)
+            } else {
+                resolve();
             }
         });
     }
